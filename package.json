@@ -4,9 +4,10 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "fastapi-dev": "pip3 install -r requirements.txt && python -m uvicorn api.index:app --reload",
+    "start": "nuxt start",
+    "fastapi-dev": "pip3 install -r requirements.txt && python -m uvicorn api.main:app --reload --host 0.0.0.0 --port 9000",
     "nuxt-dev": "nuxt dev",
-    "dev": "concurrently \"npm run nuxt-dev\" \"npm run fastapi-dev\"",
+    "dev": "concurrently \"pnpm nuxt-dev\" \"pnpm fastapi-dev\"",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -18,6 +19,11 @@
     "vue-router": "^4.3.2"
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
-  }
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@tailwindcss/vite": "^4.1.10",
+    "class-variance-authority": "^0.7.1",
+    "concurrently": "^8.2.2",
+    "tailwind-merge": "^3.3.1"
+  },
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }
