@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     classSuffix: '', // removes `-mode` suffix from class
   },
   devtools: { enabled: true },
-  srcDir: 'src/',
+  srcDir: 'frontend/',
   routeRules: {
     '/api/**': {
       proxy: process.env.NODE_ENV === 'development' ? 'http://0.0.0.0:9000/api/**' : '/api/**',
@@ -27,8 +27,8 @@ export default defineNuxtConfig({
       config: {
         routes: [
           {
-            src: '/api/(.*)',
-            dest: 'api/main.py',
+            src: '/backend/(.*)',
+            dest: 'backend/main.py',
           },
         ],
       },

@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { motion } from 'motion-v';
 defineProps<{ isLoading: boolean; isEmpty: boolean }>();
+
 const isDark = useDarkCheck();
 </script>
 
 <template>
-  <button
+  <motion.button
+    layout
     v-if="isDark !== null"
     @click="$emit('click')"
     :disabled="isLoading || isEmpty"
@@ -24,7 +27,7 @@ const isDark = useDarkCheck();
     <div :class="cn(isEmpty ? '' : 'group-hover:-rotate-45', isLoading && '-rotate-45')">
       <slot name="icon" />
     </div>
-  </button>
+  </motion.button>
 </template>
 
 <style scoped>
