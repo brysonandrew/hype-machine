@@ -1,7 +1,8 @@
 import { ref } from 'vue';
 import { useTypewriter } from './useTypewriter';
 
-export const useHypeClick = () => {
+export const useHype = () => {
+  const mode = useMode();
   const prompt = ref('');
   const result = ref('');
   const isLoading = ref(false);
@@ -16,7 +17,9 @@ export const useHypeClick = () => {
 
     try {
       const response = await fetch(
-        `https://hype-machine-ud8o.onrender.com/hype?prompt=${encodeURIComponent(prompt.value)}`,
+        `https://hype-machine-ud8o.onrender.com/${mode.value}?prompt=${encodeURIComponent(
+          prompt.value,
+        )}`,
       );
       console.log(response);
       const data = await response.json();
@@ -37,7 +40,6 @@ export const useHypeClick = () => {
     prompt,
     result,
     isLoading,
-    typedOutput,
     click,
   };
 };
