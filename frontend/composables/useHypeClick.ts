@@ -15,12 +15,12 @@ export const useHypeClick = () => {
     typedOutput.value = '';
 
     try {
-      // const response = await fetch(`/hype?prompt=${encodeURIComponent(prompt.value)}`);
-      const response = await fetch(`/api`);
+      const response = await fetch(`https://overhype-machine.onrender.com/hype?prompt=${encodeURIComponent(prompt.value)}`);
+      // const response = await fetch(`https://overhype-machine.onrender.com/api`);
       console.log(response);
       const data = await response.json();
       console.log(data);
-      const output = data.hype || data.melody || data.error || 'No response.';
+      const output = data.message || data.hype || data.melody || data.error || 'No response.';
       result.value = output;
       animateTyping(output);
     } catch (error) {

@@ -1,16 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes.hype import router as hype_router
+from routes.hype import router as hype_router
+from routes.melody import router as melody_router
 
 app = FastAPI()
-
-@app.get("/api")
-def hello_world():
-    return {"message": "Hello World", "api": "Python"}
-
-@app.get("/api/test")
-def test():
-    return {"message": "Test"}
 
 # Optional: CORS for local Nuxt dev or Vercel prod
 app.add_middleware(
@@ -28,3 +21,4 @@ def health_check():
 
 
 app.include_router(hype_router)
+app.include_router(melody_router)

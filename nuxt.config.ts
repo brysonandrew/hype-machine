@@ -22,16 +22,6 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
   nitro: {
-    compatibilityDate: '2025-06-16',
-    vercel: {
-      config: {
-        routes: [
-          {
-            src: '/backend/(.*)',
-            dest: 'backend/main.py',
-          },
-        ],
-      },
-    },
+    compatibilityDate: '2025-06-16'
   },
 });
