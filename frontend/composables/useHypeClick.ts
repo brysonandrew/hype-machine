@@ -16,7 +16,7 @@ export const useHypeClick = () => {
 
     try {
       // const response = await fetch(`/hype?prompt=${encodeURIComponent(prompt.value)}`);
-      const response = await fetch(`/api/test`);
+      const response = await fetch(`/api`);
       console.log(response);
       const data = await response.json();
       console.log(data);

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "start": "nuxt start",
-    "fastapi-dev": "pip3 install -r requirements.txt && python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 9000",
+    "fastapi-dev": "python backend/setup.py && python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 9000",
     "nuxt-dev": "nuxt dev",
     "dev": "concurrently \"pnpm nuxt-dev\" \"pnpm fastapi-dev\"",
     "generate": "nuxt generate",
