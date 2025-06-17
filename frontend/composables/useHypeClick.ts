@@ -15,8 +15,9 @@ export const useHypeClick = () => {
     typedOutput.value = '';
 
     try {
-      const response = await fetch(`https://overhype-machine.onrender.com/hype?prompt=${encodeURIComponent(prompt.value)}`);
-      // const response = await fetch(`https://overhype-machine.onrender.com/api`);
+      const response = await fetch(
+        `https://hype-machine-ud8o.onrender.com/hype?prompt=${encodeURIComponent(prompt.value)}`,
+      );
       console.log(response);
       const data = await response.json();
       console.log(data);
