@@ -1,26 +1,37 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineNuxtConfig({
+  modules: ['@nuxtjs/color-mode'],
+  colorMode: {
+    preference: 'system', // default theme
+    fallback: 'dark', // fallback if system preference can't be detected
+    classSuffix: '', // removes `-mode` suffix from class
+  },
   devtools: { enabled: true },
-  srcDir: "src/",
+  srcDir: 'src/',
   routeRules: {
     '/api/**': {
-      proxy: process.env.NODE_ENV === "development" ? "http://127.0.0.1:8000/api/**" : "/api/**",
+      proxy: process.env.NODE_ENV === 'development' ? 'http://0.0.0.0:9000/api/**' : '/api/**',
     },
-    '/docs': {
-      proxy: "http://127.0.0.1:8000/docs",
-    },
-    '/openapi.json': {
-      proxy: "http://127.0.0.1:8000/openapi.json",
-    }
+  },
+  imports: {
+    dirs: ['./utils'],
+  },
+  css: ['~/public/css/main.css'],
+  vite: {
+    plugins: [tailwindcss()],
   },
   nitro: {
+    compatibilityDate: '2025-06-16',
     vercel: {
       config: {
-        routes: [{
-          "src": "/api/(.*)",
-          "dest": "api/index.py"
-        }]
-      }
-    }
-  }
-})
+        routes: [
+          {
+            src: '/api/(.*)',
+            dest: 'api/main.py',
+          },
+        ],
+      },
+    },
+  },
+});
