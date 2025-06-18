@@ -16,13 +16,13 @@ onBeforeUnmount(() => {
   clearTimeout(timeoutId);
 });
 
-const textClassValue = 'text-9xl font-bold tracking-normal';
+const textClassValue = 'text-8xl font-bold tracking-normal lg:text-9xl';
 </script>
 
 <template>
   <header
     v-if="isDark !== null"
-    class="-left-24 px-24 w-full flex flex-col justify-between items-center lg:flex-row relative overflow-hidden"
+    class="relative -left-24 pl-24 w-full box-content flex flex-col justify-between items-center overflow-hidden lg:flex-row"
   >
     <Container>
       <span

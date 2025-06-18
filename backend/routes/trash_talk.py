@@ -8,25 +8,29 @@ router = APIRouter()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-def get_prompt(situation: str, tone: str, subject: str) -> str:
+def get_prompt(
+    target: str,
+    context: str,
+    tone: str
+) -> str:
     return f"""
 You are a world-class trash talker, known for roasting subjects with perfect timing.
 Tone: {tone.upper()}
-Context: {situation.upper()}
-Target: {subject}
+Context: {context.upper()}
+Target: {target}
 
 Keep it short, sharp, and memorable.
 """
 
 
-@router.get("/trash-talker")
-def generate_trash(
-    subject: str = Query(...),
-    situation: str = Query(default="generic"),
+@router.get("/trash-talk")
+def trash_talk(
+    target: str = Query(...),
+    context: str = Query(default="generic"),
     tone: str = Query(default="funny"),
     client: OpenAI = Depends(get_openai_client),
 ):
-    prompt = get_prompt(situation, tone, subject)
+    prompt = get_prompt(context, tone, target)
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[

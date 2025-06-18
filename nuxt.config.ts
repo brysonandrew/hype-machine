@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: 'frontend/',
   imports: {
-    dirs: ['./constants', './components', './composables', './utils'],
+    dirs: ['./constants', './components', './composables', './types', './utils'],
   },
   css: ['~/public/css/main.css'],
   vite: {

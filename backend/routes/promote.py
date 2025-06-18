@@ -7,26 +7,26 @@ router = APIRouter()
 logger = logging.getLogger("uvicorn.error")
 
 
-def get_prompt(situation: str, tone: str, subject: str) -> str:
+def get_prompt(target: str, context: str, tone: str) -> str:
     return f"""
-You are a world-class promoter, known for creating hype over anything.
+You are a world-class promoter, known for hyping anything and everything.
 Tone: {tone.upper()}
-Context: {situation.upper()}
-Target: {subject}
+Context: {context.upper()}
+Target: {target}
 
 Keep it short, sharp, and memorable.
 """
 
 
-@router.get("/promoter")
-def generate_hype(
-    subject: str = Query(...),
-    situation: str = Query(default="generic"),
+@router.get("/promote")
+def promote(
+    target: str = Query(...),
+    context: str = Query(default="generic"),
     tone: str = Query(default="funny"),
     client: OpenAI = Depends(get_openai_client),
 ):
     try:
-        prompt = get_prompt(subject, situation, tone)
+        prompt = get_prompt(target, context, tone)
         system_msg = "You're the Overhype Machine."
         response = client.chat.completions.create(
             model="gpt-4",

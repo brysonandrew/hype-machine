@@ -1,0 +1,1 @@
+export type THypeMode = 'promote' | 'trash-talk'

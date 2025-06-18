@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes.promoter import router as promoter_router
+from backend.routes.promote import router as promoter_router
 from routes.melody import router as melody_router
-from routes.trash_talker import router as trash_talker_router
+from backend.routes.trash_talk import router as trash_talker_router
 
 app = FastAPI()
 

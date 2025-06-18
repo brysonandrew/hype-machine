@@ -1,25 +1,17 @@
 <script setup lang="ts">
-defineProps<{ prompt: string }>();
+defineProps<{ target: string }>();
 const isDark = useDarkCheck();
 const emit = defineEmits<{
-  (e: 'update:prompt', value: string): void;
-  (e: 'submit'): void;
+  (e: 'update:target', value: string): void;
 }>();
 
-const handleKeyDown = (e: KeyboardEvent) => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    emit('submit');
-  }
-};
 </script>
 
 <template>
-  <textarea
+  <input
     v-if="isDark !== null"
-    :value="prompt"
-    @input="(e) => $emit('update:prompt', (e.target as HTMLTextAreaElement).value)"
-    @keydown="handleKeyDown"
+    :value="target"
+    @input="(e) => emit('update:target', (e.target as HTMLTextAreaElement).value)"
     rows="4"
     :class="
       cn(
@@ -30,7 +22,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
           : 'bg-[#e0e0e0] focus:bg-[#d1d1d1] text-gray-800 placeholder-black shadow-inner-neumorphic',
       )
     "
-    placeholder="Enter your hype prompt..."
+    placeholder="Target"
   />
 </template>
 <style scoped>

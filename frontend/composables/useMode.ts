@@ -1,5 +1,6 @@
+
 export const useMode = () => {
-  const mode = useState<'promoter' | 'trash-talker'>('mode', () => 'promoter');
+  const mode = useState<THypeMode>('mode', () => 'promote');
 
   return mode;
 };
