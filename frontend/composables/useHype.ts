@@ -23,7 +23,7 @@ export const useHype = () => {
       console.log(response);
       const data = await response.json();
       console.log(data);
-      const output = data.message || data.hype || data.melody || data.error || 'No response.';
+      const output = data.message || data.trash_talk || data.hype || data.melody || data.error || 'No response.';
       result.value = output;
       animateTyping(output);
     } catch (error) {
