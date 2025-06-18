@@ -13,7 +13,8 @@ const handleKeyDown = (event: KeyboardEvent) => {
     tabindex="0"
     @keydown="handleKeyDown"
     :class="[
-      'text-lg flex gap-4 rounded-lg p-2 focus:outline-0 focus:bg-gray-200 dark:focus:bg-gray-800',
+      'relative -left-2',
+      'text-lg flex gap-4 rounded-lg p-2 focus:outline-0 border border-transparent focus:border-slate-200 dark:focus:border-slate-800',
       isDark ? 'text-white' : 'text-black',
     ]"
   >

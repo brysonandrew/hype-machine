@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes.promote import router as promoter_router
+from routes.promote import router as promote_router
 from routes.melody import router as melody_router
-from backend.routes.trash_talk import router as trash_talker_router
+from routes.trash_talk import router as trash_talk_router
 
 app = FastAPI()
 
@@ -21,6 +21,6 @@ def health_check():
     return {"status": "ok"}
 
 
-app.include_router(promoter_router)
+app.include_router(promote_router)
 app.include_router(melody_router)
-app.include_router(trash_talker_router)
+app.include_router(trash_talk_router)
