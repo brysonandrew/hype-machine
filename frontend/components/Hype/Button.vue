@@ -13,6 +13,7 @@ const isDark = useDarkCheck();
     :disabled="isLoading || isEmpty"
     :class="
       cn(
+        'no-print',
         'flex justify-center gap-4 uppercase text-lg',
         'relative overflow-hidden group px-8 py-4 rounded-2xl font-semibold transition duration-200 ease-in-out cursor-pointer disabled:cursor-not-allowed',
         isEmpty ? 'opacity-20' : 'btn-gradient-hover ',

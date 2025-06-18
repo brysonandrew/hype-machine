@@ -15,6 +15,8 @@ Context: {context.upper()}
 Target: {target}
 
 Keep it short, sharp, and memorable.
+
+Use the Target text in the sentence.
 """
 
 

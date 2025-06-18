@@ -1,20 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-
-const isGlitching = ref(true);
 const isDark = useDarkCheck();
-
-let timeoutId: ReturnType<typeof setTimeout>;
-
-onMounted(() => {
-  timeoutId = setTimeout(() => {
-    isGlitching.value = false;
-  }, 8000);
-});
-
-onBeforeUnmount(() => {
-  clearTimeout(timeoutId);
-});
 
 const textClassValue = 'text-8xl font-bold tracking-normal lg:text-9xl';
 </script>
@@ -29,9 +14,9 @@ const textClassValue = 'text-8xl font-bold tracking-normal lg:text-9xl';
         v-for="n in 10"
         :key="n"
         class="absolute top-0 left-0 w-full pointer-events-none select-none"
-        :class="isGlitching ? `glitch-layer glitch-${n} slide-in-${n}` : 'hidden'"
+        :class="`glitch-layer glitch-${n} slide-in-${n}`"
       >
-        <span :class="cn(textClassValue)"> Hype Machine </span>
+        <em :class="cn(textClassValue)"> Hype Machine </em>
       </span>
 
       <h1
@@ -48,28 +33,12 @@ const textClassValue = 'text-8xl font-bold tracking-normal lg:text-9xl';
 <style scoped>
 .text-neumorphic {
   color: #333;
-
   text-shadow: 4px 4px 8px #b0b0b0, /* stronger lower-right shadow */ -4px -4px 8px #ffffff; /* brighter upper-left highlight */
 }
 
 .text-neumorphic-dark {
   color: #eee;
   text-shadow: 4px 4px 8px #000000, -4px -4px 8px #3c3c3c;
-}
-
-@keyframes glitch-float {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  50% {
-    transform: translate(var(--x), var(--y));
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
 }
 
 @keyframes slide-in-left {
@@ -86,12 +55,9 @@ const textClassValue = 'text-8xl font-bold tracking-normal lg:text-9xl';
 }
 
 .glitch-layer {
-  z-index: 5;
   mix-blend-mode: difference;
-  animation: glitch-float 0.6s infinite ease-in-out;
 }
 
-/* Unique, staggered color per layer */
 .glitch-1 {
   --x: 1px;
   --y: -1px;

@@ -12,7 +12,7 @@ const isMounted = useMountedCheck();
     <div class="relative flex flex-col items-center justify-stretch min-h-screen gap-6 px-6 w-full">
       <Header />
       <Container class="grow">
-          <Hype />
+        <Hype />
       </Container>
       <Container>
         <Result />

@@ -8,12 +8,12 @@ export const useHype = () => {
   const result = ref('');
   const isLoading = ref(false);
 
-  const { typedOutput, animateTyping } = useTypewriter();
+  const { typedTokens, animateTyping } = useTypewriter();
 
   const click = async () => {
     isLoading.value = true;
     result.value = '';
-    typedOutput.value = '';
+    typedTokens.value = [];
 
     try {
       const params = { target: target.value, context: context.value };
@@ -23,13 +23,14 @@ export const useHype = () => {
       console.log(response);
       const data = await response.json();
       console.log(data);
-      const output = data.message || data.trash_talk || data.hype || data.melody || data.error || 'No response.';
+      const output =
+        data.message || data.trash_talk || data.hype || data.melody || data.error || 'No response.';
       result.value = output;
       animateTyping(output);
     } catch (error) {
       console.error(error);
       result.value = 'Something went wrong.';
-      typedOutput.value = result.value;
+      animateTyping(result.value);
     } finally {
       isLoading.value = false;
     }

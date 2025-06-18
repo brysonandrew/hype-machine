@@ -7,6 +7,9 @@ const { target, context, isLoading, click } = useHype();
       <HypeMode />
       <HypeTarget v-model:target="target" />
     </div>
+    <div>
+      <InputsTag :modelValue="[]"/>
+    </div>
     <HypeContext
       v-model:context="context"
       @submit="click"

@@ -1,10 +1,35 @@
 <script setup lang="ts">
 const toggleDarkMode = useDarkToggle();
 const isDark = useDarkCheck();
+const printPage = () => {
+  window.print();
+};
 </script>
 
 <template>
-  <footer class="fixed bottom-4 w-full flex items-end justify-end h-0 px-4">
+  <footer class="fixed bottom-4 w-full flex items-end justify-end gap-2 h-0 px-4 no-print">
+    <button
+      tabindex="-1"
+      @click="printPage"
+      :class="[
+        'aspect-square w-12 p-3 rounded-full transition duration-200 ease-in-out cursor-pointer',
+        isDark
+          ? 'bg-[#252525] text-white shadow-neumorphic-dark hover:shadow-neumorphic-hover-dark active:shadow-neumorphic-inset-dark'
+          : 'bg-[#e0e0e0] text-black shadow-neumorphic hover:shadow-neumorphic-hover active:shadow-neumorphic-inset',
+      ]"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24px"
+        height="24px"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M21 7v12q0 .825-.587 1.413T19 21H5q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h12zm-9 11q1.25 0 2.125-.875T15 15t-.875-2.125T12 12t-2.125.875T9 15t.875 2.125T12 18m-6-8h9V6H6z"
+        />
+      </svg>
+    </button>
     <button
       tabindex="-1"
       @click="toggleDarkMode"

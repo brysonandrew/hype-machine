@@ -1,3 +1,9 @@
+<style>
+.border:focus {
+  outline: none;
+  box-shadow: 0 0 1px var(--accent);
+}
+</style>
 <script setup lang="ts">
 const mode = useMode();
 const isDark = useDarkCheck();
@@ -14,7 +20,7 @@ const handleKeyDown = (event: KeyboardEvent) => {
     @keydown="handleKeyDown"
     :class="[
       'relative -left-2',
-      'text-lg flex gap-4 rounded-lg p-2 focus:outline-0 border border-transparent focus:border-slate-200 dark:focus:border-slate-800',
+      'text-lg flex gap-4 rounded-lg p-2 border border-transparent',
       isDark ? 'text-white' : 'text-black',
     ]"
   >
