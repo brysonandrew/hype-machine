@@ -22,9 +22,9 @@ const textClassValue = 'text-8xl font-bold tracking-normal lg:text-9xl';
 <template>
   <header
     v-if="isDark !== null"
-    class="relative -left-24 pl-24 w-full box-content flex flex-col justify-between items-center overflow-hidden lg:flex-row"
+    class="relative -left-24 px-24 w-full box-content flex flex-col items-center justify-between overflow-hidden"
   >
-    <Container>
+    <Container class="left-24">
       <span
         v-for="n in 10"
         :key="n"

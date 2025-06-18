@@ -9,24 +9,26 @@ const handleKeyDown = (event: KeyboardEvent) => {
 </script>
 
 <template>
-  <div :class="['text-lg', isDark ? 'text-white' : 'text-black']">
-    <div
-      tabindex="0"
-      @keydown="handleKeyDown"
-      class="flex gap-4 rounded-lg focus:outline-1"
+  <div
+    tabindex="0"
+    @keydown="handleKeyDown"
+    :class="[
+      'text-lg flex gap-4 rounded-lg p-2 focus:outline-0 focus:bg-gray-200 dark:focus:bg-gray-800',
+      isDark ? 'text-white' : 'text-black',
+    ]"
+  >
+    <InputsRadio
+      value="promote"
+      :active="mode"
     >
-      <InputsRadio
-        value="promote"
-        :active="mode"
-      >
-        Promote</InputsRadio
-      >
-      <InputsRadio
-        value="trash-talk"
-        :active="mode"
-      >
-        Trash Talk</InputsRadio
-      >
-    </div>
+      Promote
+    </InputsRadio>
+    <InputsRadio
+      value="trash-talk"
+      :active="mode"
+      v-model="mode"
+    >
+      Trash Talk
+    </InputsRadio>
   </div>
 </template>
