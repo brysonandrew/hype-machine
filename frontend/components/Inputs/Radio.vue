@@ -26,7 +26,7 @@ const isDark = useDarkCheck();
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .neumorphic-label.selected {
@@ -40,7 +40,6 @@ const isDark = useDarkCheck();
 /* Light mode styles */
 .neumorphic-label.light {
   background: #e0e0e0;
-  color: #333;
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
 }
 
@@ -51,7 +50,6 @@ const isDark = useDarkCheck();
 /* Dark mode styles: deeper & subtle */
 .neumorphic-label.dark {
   background: #1c1c1c;
-  color: #ccc;
   box-shadow: 4px 4px 8px #141414, -4px -4px 8px #222222;
 }
 
