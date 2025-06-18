@@ -1,14 +1,12 @@
 <script setup lang="ts">
 const toggleDarkMode = useDarkToggle();
 const isDark = useDarkCheck();
-
 </script>
 
 <template>
-  <footer
-    class="fixed bottom-4 w-full flex items-end justify-end h-0 px-4"
-  >
+  <footer class="fixed bottom-4 w-full flex items-end justify-end h-0 px-4">
     <button
+      tabindex="-1"
       @click="toggleDarkMode"
       :class="[
         'aspect-square w-12 p-3 rounded-full transition duration-200 ease-in-out cursor-pointer',

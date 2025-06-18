@@ -1,8 +1,6 @@
-import { ref } from 'vue';
-
 export const useTypewriter = () => {
-  const typedOutput = ref('');
-  const typingIndex = ref(0);
+  const typedOutput = useState('typed-output', () => '');
+  const typingIndex = useState('typing-index', () => 0);
 
   const animateTyping = (text: string, ms = 100) => {
     typedOutput.value = '';

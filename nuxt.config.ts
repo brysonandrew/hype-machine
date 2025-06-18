@@ -9,19 +9,14 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   srcDir: 'frontend/',
-  routeRules: {
-    '/api/**': {
-      proxy: process.env.NODE_ENV === 'development' ? 'http://0.0.0.0:9000/api/**' : '/api/**',
-    },
-  },
   imports: {
-    dirs: ['./utils'],
+    dirs: ['./constants', './components', './composables', './types', './utils'],
   },
   css: ['~/public/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
   },
   nitro: {
-    compatibilityDate: '2025-06-16'
+    compatibilityDate: '2025-06-16',
   },
 });

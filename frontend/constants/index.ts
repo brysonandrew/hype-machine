@@ -1,0 +1,1 @@
+export const API_URL = 'https://hype-machine-ud8o.onrender.com'
